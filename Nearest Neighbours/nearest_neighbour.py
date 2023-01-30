@@ -57,9 +57,16 @@ def mincluster(clusters, node):
 
 def main():
 
-    x = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
-    d = [(2,2), (1,3), (4,5), (6,1), (2,3), (2,1), (1,1)]
-    critical_dist = 5
+    n = int(input('Number of Points'))
+
+
+    x = [chr(ord('a') + i) for i in range(n)]
+    d = [(np.random.randint(-3, 3), np.random.randint(-3, 3)) for i in range(n)]
+
+    print(x)
+    print(d)
+
+    critical_dist = 3.5
     k = 1
 
     nodes = []
@@ -70,17 +77,16 @@ def main():
     clusters['k1'] = Cluster('k1', nodes[np.random.randint(0,5)])
 
     for node in (i for i in nodes if not i.visited):
-        print(node.state)
 
         if clusters[mincluster(clusters, node)].minDist(node) <= critical_dist:
             clusters[mincluster(clusters, node)].addNode(node)
         else:
             k+=1
             clusters[f'k{k}'] = Cluster(f'k{k}', node)
-
-    plot(nodes, clusters)
+    
     for node in nodes:
         print(node.state, node.cluster)
+    plot(nodes, clusters)
 
 
 if __name__ == '__main__':
