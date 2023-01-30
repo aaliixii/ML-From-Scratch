@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import random
-
+import math
 class Node():
     def __init__(self, state, location) -> None:
         self.state = state
@@ -20,11 +20,8 @@ class Cluster():
         self.nodes.append(node)
         node.visited = True
 
-    def distance(self, points):
-        return np.linalg.norm(points)
-
     def minDist(self, node):
-        dist = (self.distance([i.location[0], i.location[1], node.location[0], node.location[1]]) for i in self.nodes)
+        dist = (math.dist(i.location, node.location) for i in self.nodes)
         return min(dist)
 
 def plot(nodes, clusters):
@@ -60,13 +57,13 @@ def main():
     n = int(input('Number of Points'))
 
 
-    x = [chr(ord('a') + i) for i in range(n)]
-    d = [(np.random.randint(-3, 3), np.random.randint(-3, 3)) for i in range(n)]
+    x = [chr(ord('A') + i) for i in range(n)]
+    d = [(np.random.randint(-10, 10), np.random.randint(-10, 10)) for i in range(n)]
 
     print(x)
     print(d)
 
-    critical_dist = 3.5
+    critical_dist = 5
     k = 1
 
     nodes = []
