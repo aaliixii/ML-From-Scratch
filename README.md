@@ -9,3 +9,5 @@ This repository consists of key Machine Learning algorithms and concepts created
 3) Binary Classification
 4) Multiclass Classification
 5) Base Nearest Neighbours
+6) K-Nearest Neighbours
+7) K-Means Clustering

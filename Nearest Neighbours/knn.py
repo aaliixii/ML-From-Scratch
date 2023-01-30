@@ -52,8 +52,6 @@ def main():
     x = [chr(ord('a') + i) for i in range(n)]
     d = [(np.random.randint(-10, 10), np.random.randint(-10, 10)) for i in range(n)]
 
-    k = round(np.sqrt(n))
-
     nodes = []
     for i in range(len(x)):
         nodes.append(Node(x[i], d[i]))
@@ -63,7 +61,7 @@ def main():
     target = Node('target', (0,0))
 
     for i, node in enumerate(nodes):
-        if i<k:
+        if i<round(np.sqrt(n)):
             hood.addNode(node)
         else:
             if hood.maxDist(node)[0] > node.dist(target):
