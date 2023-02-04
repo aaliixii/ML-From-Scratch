@@ -19,11 +19,10 @@ def fib_search(arr, n, x):
             fibM = fib(k, memo)
             break
         k+=1
-
     fibMm1 = fib(k-1, memo)
     fibMm2 = fib(k-2, memo)
 
-    
+
 
 
 
