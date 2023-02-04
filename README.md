@@ -4,10 +4,16 @@ This repository consists of key Machine Learning algorithms and concepts created
 
 ### Algorithms implemented:
 
-1) Linear Regression (Batch, Mini-Batch, Stochastic, with Momentum) 
-2) Regularised Regression
+1) Linear Regression 
+2) Regularised Regression (Lasso and Ridge)
 3) Binary Classification
 4) Multiclass Classification
 5) Base Nearest Neighbours
 6) K-Nearest Neighbours
-7) K-Means Clustering
+7) K-Means Clustering (WIP)
+
+### Optimisation Algorithms:
+
+1) Fibonacci Search
+2) Gradient Descent (BGD, SGD, MBGD, with Momentum)
+
