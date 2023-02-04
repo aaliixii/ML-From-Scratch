@@ -1,18 +1,39 @@
 def fib(n, memo):
-    if memo[n] is not None:
-        return memo[n]
-    
     if n == 1 or n == 2:
         return 1
     else:
-        result = fib(n - 1, memo) + fib(n - 2, memo)
-        memo[n] = result
-        return result
+        return fib(n - 1) + fib(n - 2)
+
+def fibonacciSearch(arr, target, offest, memo):
+
+    n = len(arr)
+    k = 0
+    while True:
+        if fib(k) >= n:
+            break
+        k+=1
+    
+    
+    
+
 
 def main():
-    n = int(input())
-    memo = [None] * (n + 1)
-    print(fib(n, memo))
+    arr = []
+    while True:
+        try:
+            arr.append(int(input('Enter a number.\nType q to quit')))
+        except ValueError:
+            break
+
+    target = int(input('Target number:\n'))
+    offset = -1
+    idx = fibonacciSearch(arr, target, offset)
+    
+    if idx != -1:
+        print(f'Found at idx: {idx}')
+    else:
+        print('Not Found')
+
 
 if __name__ == '__main__':
     main()
