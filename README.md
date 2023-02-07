@@ -16,4 +16,5 @@ This repository consists of key Machine Learning algorithms and concepts created
 
 1) Fibonacci Search
 2) Gradient Descent (BGD, SGD, MBGD, with Momentum)
-3) Golden Selection Search
+3) AdaGrad (Adaptive Gradients)
+
