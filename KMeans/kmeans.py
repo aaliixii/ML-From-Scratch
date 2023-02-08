@@ -75,7 +75,7 @@ def main():
     k = int(input('Number of Clusters:\n'))
     epochs = int(input('Number of Epochs\n'))
     x = [chr(ord('A') + i) for i in range(n)]
-    d = [(np.random.randint(-10, 10), np.random.randint(-10, 10)) for i in range(n)]
+    d = [(np.random.randint(-5, 0), np.random.randint(-5, 0)) for i in range(n//2)] + [(np.random.randint(0, 5), np.random.randint(-5, 0)) for i in range(n//2)]
     # x = ['a', 'b', 'c', 'd', 'e']
     # d = [(0,0), (0,1), (1,0), (1,1), (2,0)]
     nodes = []
@@ -104,7 +104,6 @@ def main():
         selected = []
         for i, cluster in enumerate(clusters.values()):
             dist = []
-            dist1 = []
             # print(f'{cluster.state}') #Debug
             print(mean[i]) #Debug
 
@@ -136,8 +135,8 @@ def main():
             # print('') #Debug
         plot(nodes, clusters, means)
         means = []
-    # for i in nodes:
-    #     print(i.state, i.cluster)
+        for i in nodes:
+            print(i.state, i.cluster)
     # plot(nodes, clusters, means)
 
 if __name__ == '__main__':
