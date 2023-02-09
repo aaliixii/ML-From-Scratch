@@ -28,16 +28,13 @@ class Cluster():
 
     def addNode(self, node):
 
-            node.cluster = self.state
-            self.nodes.append(node)
-            node.visited = True
+        node.cluster = self.state
+        self.nodes.append(node)
+        node.visited = True
 
     def rmNode(self, node):
         self.nodes.remove(node)
-
-    def change(self, node, cluster):
-        cluster.rmNode(node)
-        self.addNode(node)
+        node.cluster = None
 
 
 def plot(nodes, clusters, means):
@@ -70,6 +67,10 @@ def plot(nodes, clusters, means):
     plt.scatter(x, y, c=c)
     plt.show()
 
+def visit_reset(nodes):
+    for i in nodes:
+        i.visited = False
+
 def main():
     n = int(input('Number of Points:\n'))
     k = int(input('Number of Clusters:\n'))
@@ -94,50 +95,6 @@ def main():
     for i in nodes:
             print(i.state, i.cluster)
     print('')
-
-    means = []
-    for z in range(0, epochs):
-        print(f'{z+1} Iteration\n')
-        mean = [i.mean() for i in clusters.values()]
-        means.append(mean)
-        # print('Mean: ', mean) #Debug
-        selected = []
-        for i, cluster in enumerate(clusters.values()):
-            dist = []
-            # print(f'{cluster.state}') #Debug
-            print(mean[i]) #Debug
-
-            for node in nodes:
-                # print(node.state, node.cluster) #Debug
-
-                if (float(node.loc[0]) != mean[i][0]) or (float(node.loc[1]) != mean[i][1]):
-                    dist.append([node, math.dist(mean[i], node.loc)])
-                    # dist1.append(math.dist(mean[i], node.loc)) #Debug
-                    # print('Distance: ', dist1) #Debug
-                else:
-                    dist.append([node, 100])
-            dist.sort(key = lambda i: i[1])
-
-            for i in dist:
-                if i[0] not in selected:
-                    minNode = i[0]
-                    selected.append(minNode)
-                    break
-
-            # print(minNode.state)    #Debug
-
-            if minNode.cluster is None:
-                cluster.addNode(minNode)
-            else:
-                cluster.change(minNode, clusters[minNode.cluster])
-            # print('') #Debug
-
-            # print('') #Debug
-        plot(nodes, clusters, means)
-        means = []
-        for i in nodes:
-            print(i.state, i.cluster)
-    # plot(nodes, clusters, means)
 
 if __name__ == '__main__':
     main()
