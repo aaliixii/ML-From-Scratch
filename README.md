@@ -18,3 +18,4 @@ This repository consists of key Machine Learning algorithms and concepts created
 2) Gradient Descent (BGD, SGD, MBGD, with Momentum)
 3) AdaGrad (Adaptive Gradients)
 4) RMSProp
+5) Adam
