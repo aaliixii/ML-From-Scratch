@@ -42,7 +42,7 @@ def main():
     for i in range(len(x)):
         nodes.append(Node(x[i], d[i]))
 
-    target = Node('target', (0,0))
+    target = Node('target', (np.random.randint(-10, 10), np.random.randint(-10, 10)))
     dist = [[i.state, i.dist(target)] for i in nodes]
     dist.sort(key = lambda i: i[1])
     neighbours = [dist[i][0] for i in range(k)]
