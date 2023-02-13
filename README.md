@@ -11,6 +11,7 @@ This repository consists of key Machine Learning algorithms and concepts created
 5) Base Nearest Neighbours
 6) K-Nearest Neighbours
 7) K-Means Clustering
+8) Hierarchical Clustering (Single Link and Average Link) (WIP)
 
 ### Optimisation Algorithms:
 
@@ -18,4 +19,6 @@ This repository consists of key Machine Learning algorithms and concepts created
 2) Gradient Descent (BGD, SGD, MBGD, with Momentum)
 3) AdaGrad (Adaptive Gradients)
 4) RMSProp
-5) Adam
+5) Adam (WIP)
+6) Genetic Algorithm (WIP)
+
