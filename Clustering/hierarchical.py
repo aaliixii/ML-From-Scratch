@@ -35,14 +35,18 @@ class Clustering():
 
     def newAdj(self):
         for i, cluster in enumerate(self.clusters.values()):
-            print(cluster.state)
-            minNodes = cluster.minNode(self.clusters)
-            dist = []
+            if len(cluster.nodes) != 1:
 
-            for node in minNodes:
-                dist.append(math.dist(node.loc, minNodes[node].loc))
+                minNodes = cluster.minNode(self.clusters)
+                dist = []
+
+                for node in minNodes:
+                    dist.append(math.dist(node.loc, minNodes[node].loc))
             
-            minNode_from, minNode_to = list(minNodes.keys())[dist.index(min(dist))].state, list(minNodes.values())[dist.index(min(dist))].state
+                minNode_from, minNode_to = list(minNodes.keys())[dist.index(min(dist))].state, list(minNodes.values())[dist.index(min(dist))].state
+
+            for j, cluster in enumerate(self.clusters.values()):
+                
 
             print(minNode_from, minNode_to)
 
